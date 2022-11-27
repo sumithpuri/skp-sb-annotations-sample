@@ -30,14 +30,6 @@ public class SBASampleController {
 	@Autowired
 	SBASampleConfigurationProperties sbasConfigProps;
 
-	@PostMapping("/")
-	public void addBook(@RequestBody Book book) {
-
-		System.out.println("Testing Properties: " + sbasConfigProps.getName() + "; " + 
-				sbasConfigProps.getMail() + "; " + sbasConfigProps.getYear());
-		bookServiceImpl.addBook(book);
-	}
-
 	@GetMapping("/findall")
 	public HashSet<Book> getAllBook() {
 		return bookServiceImpl.findAllBook();
@@ -53,4 +45,12 @@ public class SBASampleController {
 		bookServiceImpl.deleteAllData();
 	}
 
+	@PostMapping("/")
+	public void addBook(@RequestBody Book book) {
+
+		System.out.println("Testing Properties: " + sbasConfigProps.getName() + "; " 
+													+ sbasConfigProps.getMail() + "; "
+													+ sbasConfigProps.getYear());
+		bookServiceImpl.addBook(book);
+	}
 }
